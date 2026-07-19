@@ -7,11 +7,11 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="K Town Rips">
-<link rel="apple-touch-icon" href="./icon.png">
+<link rel="apple-touch-icon" href="./icon.png?v=nfl-1">
 <title>K Town Rips — Live Break Board</title>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="./support.js"></script>
+<script src="./support.js?v=nfl-1"></script>
 </head>
 <body>
 <x-dc>
@@ -47,18 +47,25 @@
   <div style="position: absolute; inset: 0; background:
     linear-gradient(180deg, rgba(12,7,22,.93) 0%, rgba(14,8,26,.9) 45%, rgba(10,6,18,.95) 100%);"></div>
 
-  <!-- ===== K TOWN RIPS BANNER (front layer) ===== -->
+  <!-- ===== K TOWN RIPS BANNER (front layer, official patch logo) ===== -->
   <div style="flex: 0 0 auto; width: 100%; aspect-ratio: 1800 / 535; position: relative; z-index: 70;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5%;
+    display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 3.5%; overflow: hidden;
     background: linear-gradient(120deg, #070c14 0%, #0d1c33 48%, #070c14 78%, #1c090c 100%);
     border-bottom: 3px solid #3d8bff; box-shadow: 0 10px 32px rgba(0,0,0,.85);">
-    <div style="font-family: 'Anton'; font-size: clamp(26px, 7vw, 88px); line-height: 1; letter-spacing: .05em; color: #fff;
-      text-shadow: 0 4px 18px rgba(61,139,255,.45);">
-      K&thinsp;TOWN <span style="color: #ff3b47; text-shadow: 0 4px 18px rgba(255,59,71,.5);">RIPS</span>
+    <div style="height: 24vw; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; flex: 0 0 auto;
+      box-shadow: 0 0 0 3px #3d8bff, 0 6px 24px rgba(0,0,0,.7);">
+      <img src="./photos/ktown-logo.jpg" alt="K Town Rips"
+        style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1);" />
     </div>
-    <div style="font-family: 'Barlow Condensed'; font-weight: 600; font-size: clamp(10px, 1.7vw, 21px);
-      letter-spacing: .5em; text-indent: .5em; color: #8fc0ff;">
-      LIVE BREAK BOARD
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6%;">
+      <div style="font-family: 'Anton'; font-size: clamp(24px, 6.2vw, 80px); line-height: 1; letter-spacing: .05em; color: #fff;
+        text-shadow: 0 4px 18px rgba(61,139,255,.45);">
+        K&thinsp;TOWN <span style="color: #ff3b47; text-shadow: 0 4px 18px rgba(255,59,71,.5);">RIPS</span>
+      </div>
+      <div style="font-family: 'Barlow Condensed'; font-weight: 600; font-size: clamp(10px, 1.6vw, 20px);
+        letter-spacing: .5em; text-indent: .5em; color: #8fc0ff;">
+        NFL LIVE BREAK BOARD
+      </div>
     </div>
   </div>
 
@@ -93,7 +100,7 @@
     <!-- board count -->
     <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 2px;">
       <span style="font-family: 'Anton'; font-size: 14px; line-height: 1; color: #fff; background: #0a1220;
-        padding: 5px 7px; border-radius: 7px; border: 2px solid #3d8bff; white-space: nowrap;">{{ remaining }}/30</span>
+        padding: 5px 7px; border-radius: 7px; border: 2px solid #3d8bff; white-space: nowrap;">{{ remaining }}/32</span>
       <div style="height: 4px; width: 52px; border-radius: 3px; background: #0a1220; overflow: hidden; border: 1px solid rgba(255,59,71,.4);">
         <div style="height: 100%; width: {{ pct }}%; background: linear-gradient(90deg,#c9242f,#3d8bff); transition: width .5s ease;"></div>
       </div>
@@ -156,19 +163,19 @@
     </div>
   </div>
 
-  <!-- ===== TEAM GRID (all 30 visible, big card logos, no names) ===== -->
+  <!-- ===== TEAM GRID (all 32 visible, big card logos, no names) ===== -->
   <div style="flex: 1 1 auto; min-height: 0; position: relative; z-index: 5; padding: 8px 12px 10px; display: flex; flex-direction: column;">
     <div style="flex: 1 1 auto; min-height: 0; overflow: hidden; background: rgba(24,13,44,.88);
       border: 2px solid rgba(255,59,71,.45); border-radius: 14px; padding: 8px 10px;
       display: flex; flex-direction: column; gap: 6px; box-shadow: 0 0 24px rgba(122,47,224,.25);">
-      <sc-for list="{{ divisions }}" as="dv" hint-placeholder-count="6">
+      <sc-for list="{{ divisions }}" as="dv" hint-placeholder-count="8">
         <div style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; gap: 3px;">
           <div style="flex: 0 0 auto; display: flex; align-items: center; gap: 8px; line-height: 1;">
             <span style="font-family: 'Anton'; font-size: 11px; letter-spacing: 3px; color: {{ dv.color }};">{{ dv.label }}</span>
             <span style="flex: 1; height: 1px; background: linear-gradient(90deg, {{ dv.color }}, transparent);"></span>
           </div>
-          <div style="flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 1fr; gap: 8px;">
-            <sc-for list="{{ dv.teams }}" as="t" hint-placeholder-count="5">
+          <div style="flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr; gap: 8px;">
+            <sc-for list="{{ dv.teams }}" as="t" hint-placeholder-count="4">
               <div onClick="{{ t.select }}" style="position: relative; cursor: pointer; border-radius: 12px; min-height: 0;
                 overflow: hidden; background: #fff; border: 4px solid {{ t.border }};
                 box-shadow: 0 4px 12px rgba(0,0,0,.55); display: flex; align-items: center;
@@ -467,46 +474,49 @@ class Component extends DCLogic {
   state = {
     teams: (function(){
       const raw = [
-        ['BAL','Orioles','Baltimore','#DF4601','AL EAST'],
-        ['BOS','Red Sox','Boston','#BD3039','AL EAST'],
-        ['NYY','Yankees','New York','#0C2340','AL EAST'],
-        ['TB','Rays','Tampa Bay','#092C5C','AL EAST'],
-        ['TOR','Blue Jays','Toronto','#134A8E','AL EAST'],
-        ['CWS','White Sox','Chicago','#232323','AL CENTRAL'],
-        ['CLE','Guardians','Cleveland','#00385D','AL CENTRAL'],
-        ['DET','Tigers','Detroit','#0C2340','AL CENTRAL'],
-        ['KC','Royals','Kansas City','#004687','AL CENTRAL'],
-        ['MIN','Twins','Minnesota','#002B5C','AL CENTRAL'],
-        ['HOU','Astros','Houston','#002D62','AL WEST'],
-        ['LAA','Angels','Los Angeles','#BA0021','AL WEST'],
-        ['ATH','Athletics','West Sacramento','#0B3D2E','AL WEST'],
-        ['SEA','Mariners','Seattle','#0C2C56','AL WEST'],
-        ['TEX','Rangers','Texas','#003278','AL WEST'],
-        ['ATL','Braves','Atlanta','#CE1141','NL EAST'],
-        ['MIA','Marlins','Miami','#00A3E0','NL EAST'],
-        ['NYM','Mets','New York','#002D72','NL EAST'],
-        ['PHI','Phillies','Philadelphia','#E81828','NL EAST'],
-        ['WSH','Nationals','Washington','#AB0003','NL EAST'],
-        ['CHC','Cubs','Chicago','#0E3386','NL CENTRAL'],
-        ['CIN','Reds','Cincinnati','#C6011F','NL CENTRAL'],
-        ['MIL','Brewers','Milwaukee','#12284B','NL CENTRAL'],
-        ['PIT','Pirates','Pittsburgh','#27251F','NL CENTRAL'],
-        ['STL','Cardinals','St. Louis','#C41E3A','NL CENTRAL'],
-        ['ARI','D-backs','Arizona','#A71930','NL WEST'],
-        ['COL','Rockies','Colorado','#33006F','NL WEST'],
-        ['LAD','Dodgers','Los Angeles','#005A9C','NL WEST'],
-        ['SD','Padres','San Diego','#2F241D','NL WEST'],
-        ['SF','Giants','San Francisco','#FD5A1E','NL WEST'],
+        ['BUF','Bills','Buffalo','#00338D','AFC EAST'],
+        ['MIA','Dolphins','Miami','#008E97','AFC EAST'],
+        ['NE','Patriots','New England','#002244','AFC EAST'],
+        ['NYJ','Jets','New York','#125740','AFC EAST'],
+        ['BAL','Ravens','Baltimore','#241773','AFC NORTH'],
+        ['CIN','Bengals','Cincinnati','#FB4F14','AFC NORTH'],
+        ['CLE','Browns','Cleveland','#311D00','AFC NORTH'],
+        ['PIT','Steelers','Pittsburgh','#FFB612','AFC NORTH'],
+        ['HOU','Texans','Houston','#03202F','AFC SOUTH'],
+        ['IND','Colts','Indianapolis','#002C5F','AFC SOUTH'],
+        ['JAX','Jaguars','Jacksonville','#006778','AFC SOUTH'],
+        ['TEN','Titans','Tennessee','#0C2340','AFC SOUTH'],
+        ['DEN','Broncos','Denver','#FB4F14','AFC WEST'],
+        ['KC','Chiefs','Kansas City','#E31837','AFC WEST'],
+        ['LAC','Chargers','Los Angeles','#0080C6','AFC WEST'],
+        ['LV','Raiders','Las Vegas','#A5ACAF','AFC WEST'],
+        ['DAL','Cowboys','Dallas','#041E42','NFC EAST'],
+        ['NYG','Giants','New York','#0B2265','NFC EAST'],
+        ['PHI','Eagles','Philadelphia','#004C54','NFC EAST'],
+        ['WSH','Commanders','Washington','#5A1414','NFC EAST'],
+        ['CHI','Bears','Chicago','#0B162A','NFC NORTH'],
+        ['DET','Lions','Detroit','#0076B6','NFC NORTH'],
+        ['GB','Packers','Green Bay','#203731','NFC NORTH'],
+        ['MIN','Vikings','Minnesota','#4F2683','NFC NORTH'],
+        ['ATL','Falcons','Atlanta','#A71930','NFC SOUTH'],
+        ['CAR','Panthers','Carolina','#0085CA','NFC SOUTH'],
+        ['NO','Saints','New Orleans','#D3BC8D','NFC SOUTH'],
+        ['TB','Buccaneers','Tampa Bay','#D50A0A','NFC SOUTH'],
+        ['ARI','Cardinals','Arizona','#97233F','NFC WEST'],
+        ['LAR','Rams','Los Angeles','#003594','NFC WEST'],
+        ['SEA','Seahawks','Seattle','#002244','NFC WEST'],
+        ['SF','49ers','San Francisco','#AA0000','NFC WEST'],
       ];
       return raw.map(r => ({ id: r[0], abbr: r[0], name: r[1], city: r[2], color: r[3], div: r[4], status: 'available', winner: null }));
     })(),
     wins: [],
     promos: [
       'K TOWN RIPS · RIP · COLLECT · REPEAT',
-      'BIG RIP ENERGY 💛',
-      'SLEEVE THE BIG ONES 💜',
-      "LET'S CHASE HITS!",
-      'REAL RIPS · REAL COMMUNITY · REAL FUN',
+      'GRIDIRON HITS ALL NIGHT 🏈',
+      'FOLLOW @KTOWNRIPS ON WHATNOT — NEVER MISS A BREAK',
+      'SINGLES FOR SALE ON OUR EBAY STORE — ASK IN CHAT FOR THE LINK',
+      'ROOKIES · AUTOS · PATCHES — CHASE THE BIG ONE',
+      'MISSED YOUR TEAM? SHOP THE WHATNOT STORE AFTER THE STREAM',
       'LIKE THIS STREAM BACKGROUND & WANT ONE FOR YOURSELF? → DREWB-IT.COM',
     ],
     soundOn: true,
@@ -527,7 +537,7 @@ class Component extends DCLogic {
     liveBids: {},   // { teamId: price } — running chat bids shown on the cards
   };
 
-  logoUrl(abbr) { return './logos/' + abbr + '.svg'; }
+  logoUrl(abbr) { return './logos/' + abbr + '.png'; }
 
   secondary(abbr) {
     const S = {
@@ -581,17 +591,17 @@ class Component extends DCLogic {
   persist() {
     try {
       const s = this.state;
-      localStorage.setItem('kTownRipsBoard', JSON.stringify({
+      localStorage.setItem('kTownRipsBoard.nfl', JSON.stringify({
         teams: s.teams.map(t => ({ id: t.id, status: t.status, winner: t.winner })),
         wins: s.wins.map(w => ({ id: w.id, abbr: w.abbr, color: w.color, team: w.team, winner: w.winner, price: w.price || 0 })),
         liveBids: s.liveBids,
       }));
     } catch (e) {}
   }
-  clearPersist() { try { localStorage.removeItem('kTownRipsBoard'); } catch (e) {} }
+  clearPersist() { try { localStorage.removeItem('kTownRipsBoard.nfl'); } catch (e) {} }
   componentDidMount() {
     try {
-      const raw = localStorage.getItem('kTownRipsBoard');
+      const raw = localStorage.getItem('kTownRipsBoard.nfl');
       if (!raw) return;
       const d = JSON.parse(raw);
       this.setState(s => ({
@@ -839,12 +849,12 @@ class Component extends DCLogic {
       select: () => this.selectTeam(t.id) });
     const byDiv = {};
     s.teams.forEach(t => { (byDiv[t.div] = byDiv[t.div] || []).push(t); });
-    const DIVS = ['AL EAST','AL CENTRAL','AL WEST','NL EAST','NL CENTRAL','NL WEST'];
-    const divisions = DIVS.map(d => ({ label: d, color: d.indexOf('AL') === 0 ? '#3d8bff' : '#b789ff',
+    const DIVS = ['AFC EAST','AFC NORTH','AFC SOUTH','AFC WEST','NFC EAST','NFC NORTH','NFC SOUTH','NFC WEST'];
+    const divisions = DIVS.map(d => ({ label: d, color: d.indexOf('AFC') === 0 ? '#ff3b47' : '#3d8bff',
       teams: (byDiv[d] || []).map(mapT) }));
 
     const remaining = s.teams.filter(t => t.status !== 'won').length;
-    const pct = Math.round(((30 - remaining) / 30) * 100);
+    const pct = Math.round(((32 - remaining) / 32) * 100);
 
     // ticker — sale focus for a bit after each stamp, otherwise wins + promos
     let items = [];
