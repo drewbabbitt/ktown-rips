@@ -502,7 +502,7 @@ class Component extends DCLogic {
     })(),
     wins: [],
     promos: [
-      'PACK MAMA · RIP · COLLECT · REPEAT',
+      'K TOWN RIPS · RIP · COLLECT · REPEAT',
       'BIG RIP ENERGY 💛',
       'SLEEVE THE BIG ONES 💜',
       "LET'S CHASE HITS!",
@@ -581,17 +581,17 @@ class Component extends DCLogic {
   persist() {
     try {
       const s = this.state;
-      localStorage.setItem('packMamaBoard', JSON.stringify({
+      localStorage.setItem('kTownRipsBoard', JSON.stringify({
         teams: s.teams.map(t => ({ id: t.id, status: t.status, winner: t.winner })),
         wins: s.wins.map(w => ({ id: w.id, abbr: w.abbr, color: w.color, team: w.team, winner: w.winner, price: w.price || 0 })),
         liveBids: s.liveBids,
       }));
     } catch (e) {}
   }
-  clearPersist() { try { localStorage.removeItem('packMamaBoard'); } catch (e) {} }
+  clearPersist() { try { localStorage.removeItem('kTownRipsBoard'); } catch (e) {} }
   componentDidMount() {
     try {
-      const raw = localStorage.getItem('packMamaBoard');
+      const raw = localStorage.getItem('kTownRipsBoard');
       if (!raw) return;
       const d = JSON.parse(raw);
       this.setState(s => ({
@@ -853,7 +853,7 @@ class Component extends DCLogic {
         { text: s.saleFocus, color: '#3d8bff' },
         { text: remaining + ' TEAMS STILL ON THE BOARD', color: '#ff9d9d' },
         { text: s.saleFocus, color: '#3d8bff' },
-        { text: 'PACK MAMA · RIP · COLLECT · REPEAT', color: '#dbe7f5' },
+        { text: 'K TOWN RIPS · RIP · COLLECT · REPEAT', color: '#dbe7f5' },
       ];
     } else {
       s.wins.slice(0, 6).forEach(w => items.push({ text: (w.winner + ' RIPPED THE ' + w.team.toUpperCase() + '!'), color: '#3d8bff' }));
