@@ -47,13 +47,16 @@
   <div style="position: absolute; inset: 0; background:
     linear-gradient(180deg, rgba(12,7,22,.93) 0%, rgba(14,8,26,.9) 45%, rgba(10,6,18,.95) 100%);"></div>
 
-  <!-- ===== K TOWN RIPS BANNER (front layer, official patch logo) ===== -->
+  <!-- ===== K TOWN RIPS BANNER (patch logo + wordmark + social links) ===== -->
   <div style="flex: 0 0 auto; width: 100%; aspect-ratio: 1800 / 330; position: relative; z-index: 70;
-    display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 2.5%; overflow: hidden;
-    background: linear-gradient(120deg, #070c14 0%, #0d1c33 48%, #070c14 78%, #1c090c 100%);
+    display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 3vw; overflow: hidden;
+    background:
+      radial-gradient(ellipse 40% 90% at 14% 50%, rgba(61,139,255,.30), transparent),
+      radial-gradient(ellipse 40% 90% at 86% 50%, rgba(255,59,71,.26), transparent),
+      linear-gradient(120deg, #070c14 0%, #0d1c33 48%, #070c14 78%, #1c090c 100%);
     border-bottom: 3px solid #3d8bff; box-shadow: 0 10px 32px rgba(0,0,0,.85);">
-    <div style="height: 14.5vw; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; flex: 0 0 auto;
-      box-shadow: 0 0 0 3px #3d8bff, 0 6px 24px rgba(0,0,0,.7);">
+    <div style="height: 15vw; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; flex: 0 0 auto;
+      box-shadow: 0 0 0 3px #3d8bff, 0 0 34px rgba(61,139,255,.5), 0 6px 24px rgba(0,0,0,.7);">
       <img src="./photos/ktown-logo.jpg" alt="K Town Rips"
         style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1);" />
     </div>
@@ -66,6 +69,32 @@
         letter-spacing: .5em; text-indent: .5em; color: #8fc0ff;">
         NFL LIVE BREAK BOARD
       </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0.9vw; flex: 0 0 auto;">
+      <a href="https://www.whatnot.com/user/ktownrips" target="_blank" rel="noopener"
+        style="display: flex; align-items: center; gap: 0.7vw; padding: 0.55vw 1.2vw; border-radius: 999px;
+        border: 1.5px solid #f5c04a; background: rgba(4,8,16,.6); text-decoration: none;
+        font-family: 'Barlow Condensed'; font-weight: 600; font-size: clamp(9px, 1.45vw, 17px);
+        letter-spacing: .12em; color: #eef4fb; white-space: nowrap;">
+        <span style="width: 0.75vw; height: 0.75vw; min-width: 6px; min-height: 6px; border-radius: 50%; background: #f5c04a;"></span>
+        WHATNOT&thinsp;/&thinsp;KTOWNRIPS
+      </a>
+      <a href="https://www.ebay.com/usr/ktownrips" target="_blank" rel="noopener"
+        style="display: flex; align-items: center; gap: 0.7vw; padding: 0.55vw 1.2vw; border-radius: 999px;
+        border: 1.5px solid #3d8bff; background: rgba(4,8,16,.6); text-decoration: none;
+        font-family: 'Barlow Condensed'; font-weight: 600; font-size: clamp(9px, 1.45vw, 17px);
+        letter-spacing: .12em; color: #eef4fb; white-space: nowrap;">
+        <span style="width: 0.75vw; height: 0.75vw; min-width: 6px; min-height: 6px; border-radius: 50%; background: #3d8bff;"></span>
+        EBAY&thinsp;/&thinsp;KTOWNRIPS
+      </a>
+      <a href="https://www.instagram.com/ktownrips" target="_blank" rel="noopener"
+        style="display: flex; align-items: center; gap: 0.7vw; padding: 0.55vw 1.2vw; border-radius: 999px;
+        border: 1.5px solid #ff3b47; background: rgba(4,8,16,.6); text-decoration: none;
+        font-family: 'Barlow Condensed'; font-weight: 600; font-size: clamp(9px, 1.45vw, 17px);
+        letter-spacing: .12em; color: #eef4fb; white-space: nowrap;">
+        <span style="width: 0.75vw; height: 0.75vw; min-width: 6px; min-height: 6px; border-radius: 50%; background: #ff3b47;"></span>
+        INSTAGRAM&thinsp;@KTOWNRIPS
+      </a>
     </div>
   </div>
 
@@ -515,7 +544,7 @@ class Component extends DCLogic {
       'K TOWN RIPS · RIP · COLLECT · REPEAT',
       'GRIDIRON HITS ALL NIGHT 🏈',
       'FOLLOW @KTOWNRIPS ON WHATNOT — NEVER MISS A BREAK',
-      'SINGLES FOR SALE ON OUR EBAY STORE — ASK IN CHAT FOR THE LINK',
+      'SINGLES & LOTS · STEALS & DEALS → EBAY.COM/USR/KTOWNRIPS',
       'ROOKIES · AUTOS · PATCHES — CHASE THE BIG ONE',
       'MISSED YOUR TEAM? SHOP THE WHATNOT STORE AFTER THE STREAM',
       'LIKE THIS STREAM BACKGROUND & WANT ONE FOR YOURSELF? → DREWB-IT.COM',
