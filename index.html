@@ -49,12 +49,14 @@
 
   <!-- ===== K TOWN RIPS BANNER (front layer, official patch logo) ===== -->
   <div style="flex: 0 0 auto; width: 100%; aspect-ratio: 1800 / 535; position: relative; z-index: 70;
-    display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 3.5%;
+    display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 3.5%; overflow: hidden;
     background: linear-gradient(120deg, #070c14 0%, #0d1c33 48%, #070c14 78%, #1c090c 100%);
     border-bottom: 3px solid #3d8bff; box-shadow: 0 10px 32px rgba(0,0,0,.85);">
-    <img src="./photos/ktown-logo.jpg" alt="K Town Rips"
-      style="height: 82%; aspect-ratio: 1 / 1; border-radius: 50%; object-fit: cover; transform: scale(1.02);
-      box-shadow: 0 0 0 3px #3d8bff, 0 6px 24px rgba(0,0,0,.7);" />
+    <div style="height: 24vw; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; flex: 0 0 auto;
+      box-shadow: 0 0 0 3px #3d8bff, 0 6px 24px rgba(0,0,0,.7);">
+      <img src="./photos/ktown-logo.jpg" alt="K Town Rips"
+        style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1);" />
+    </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 6%;">
       <div style="font-family: 'Anton'; font-size: clamp(24px, 6.2vw, 80px); line-height: 1; letter-spacing: .05em; color: #fff;
         text-shadow: 0 4px 18px rgba(61,139,255,.45);">
@@ -510,10 +512,11 @@ class Component extends DCLogic {
     wins: [],
     promos: [
       'K TOWN RIPS · RIP · COLLECT · REPEAT',
-      'BIG RIP ENERGY 💛',
-      'SLEEVE THE BIG ONES 💜',
-      "LET'S CHASE HITS!",
-      'REAL RIPS · REAL COMMUNITY · REAL FUN',
+      'GRIDIRON HITS ALL NIGHT 🏈',
+      'FOLLOW @KTOWNRIPS ON WHATNOT — NEVER MISS A BREAK',
+      'SINGLES FOR SALE ON OUR EBAY STORE — ASK IN CHAT FOR THE LINK',
+      'ROOKIES · AUTOS · PATCHES — CHASE THE BIG ONE',
+      'MISSED YOUR TEAM? SHOP THE WHATNOT STORE AFTER THE STREAM',
       'LIKE THIS STREAM BACKGROUND & WANT ONE FOR YOURSELF? → DREWB-IT.COM',
     ],
     soundOn: true,
